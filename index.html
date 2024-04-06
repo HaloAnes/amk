@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Dr. John Doe - Portfolio</title>
+  <!-- Include MathJax library -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     /* Basic styling */
     body {
@@ -43,24 +46,31 @@
       padding: 20px;
       text-align: center;
     }
+    .centered {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to My Portfolio</h1>
+    <img src="https://via.placeholder.com/150" alt="Dr. John Doe">
+    <h1>Dr. John Doe</h1>
+    <h2>Associate Professor of Computer Science</h2>
   </header>
   <nav>
     <a href="#" id="homeLink">Home</a>
     <a href="#" id="aboutLink">About</a>
-    <a href="#" id="projectsLink">Projects</a>
+    <a href="#" id="researchLink">Research</a>
+    <a href="#" id="teachingLink">Teaching</a>
+    <a href="#" id="cvLink">Curriculum Vitae</a>
     <a href="#" id="contactLink">Contact</a>
   </nav>
   <section id="content" class="container">
     <h2>Home</h2>
-    <p>Welcome to my portfolio website. Here you can find information about me, my projects, and how to get in touch.</p>
+    <p>Welcome to my portfolio website. Here you can find information about me, my research, teaching activities, curriculum vitae, and how to get in touch.</p>
   </section>
   <footer>
-    <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    <p>&copy; 2024 Dr. John Doe. All rights reserved.</p>
   </footer>
   <script>
     // JavaScript to handle navigation
@@ -68,7 +78,7 @@
       event.preventDefault();
       document.getElementById('content').innerHTML = `
         <h2>Home</h2>
-        <p>Welcome to my portfolio website. Here you can find information about me, my projects, and how to get in touch.</p>
+        <p>Welcome to my portfolio website. Here you can find information about me, my research, teaching activities, curriculum vitae, and how to get in touch.</p>
       `;
     });
 
@@ -76,19 +86,47 @@
       event.preventDefault();
       document.getElementById('content').innerHTML = `
         <h2>About Me</h2>
-        <p>I am a passionate web developer with experience in HTML, CSS, JavaScript, and various frameworks. I love creating beautiful and functional websites.</p>
+        <img src="https://via.placeholder.com/200" alt="Dr. John Doe">
+        <p>I am an Associate Professor of Computer Science at XYZ University. My research interests include artificial intelligence, machine learning, and natural language processing.</p>
+        <p>I am passionate about teaching and mentoring students to help them achieve their academic and professional goals.</p>
+        <div class="centered">
+          <p>One of my favorite mathematical formulas is:</p>
+          <div id="formula1">
+            \( e^{i\pi} + 1 = 0 \)
+          </div>
+        </div>
       `;
     });
 
-    document.getElementById('projectsLink').addEventListener('click', function(event) {
+    document.getElementById('researchLink').addEventListener('click', function(event) {
       event.preventDefault();
       document.getElementById('content').innerHTML = `
-        <h2>Projects</h2>
-        <ul>
-          <li>Project 1: Description of project 1.</li>
-          <li>Project 2: Description of project 2.</li>
-          <li>Project 3: Description of project 3.</li>
-        </ul>
+        <h2>Research</h2>
+        <p>Here you can find information about my research projects, publications, and collaborations.</p>
+        <!-- You can add your research details here -->
+      `;
+    });
+
+    document.getElementById('teachingLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('content').innerHTML = `
+        <h2>Teaching</h2>
+        <p>As a university teacher, I am committed to delivering high-quality education to my students. I teach courses in computer science, including programming, data structures, algorithms, and artificial intelligence.</p>
+        <div>
+          <p>Here's an example of a mathematical formula used in one of my lectures:</p>
+          <div id="formula2">
+            \( \frac{1}{2} \left( x + \frac{1}{x} \right) \)
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById('cvLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('content').innerHTML = `
+        <h2>Curriculum Vitae</h2>
+        <p>Here you can find my detailed curriculum vitae.</p>
+        <!-- You can add your CV content here -->
       `;
     });
 
@@ -96,8 +134,13 @@
       event.preventDefault();
       document.getElementById('content').innerHTML = `
         <h2>Contact Me</h2>
-        <p>You can reach me via email at example@example.com or through my LinkedIn profile.</p>
+        <p>You can reach me via email at john.doe@example.com or through my office hours.</p>
       `;
+    });
+    
+    // JavaScript to render MathJax
+    window.addEventListener('DOMContentLoaded', function() {
+      MathJax.typeset();
     });
   </script>
 </body>
